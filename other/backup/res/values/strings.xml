@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Nexus One Live Wallpaper</string>
+    <string name="settings_title">Nexus One Live Wallpaper Settings</string>
+    <string name="description">dscrp</string>
+    <string name="preference_fps_title">Frames Per Second(fps)</string>
+    <string name="preference_fps_summary">Less fps = less battery usage but slower animation</string>
+    <string name="preference_size_title">Set size of the animation</string>
+    <string name="preference_size_summary">Set big, medium, or small size</string>
+</resources>

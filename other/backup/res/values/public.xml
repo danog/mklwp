@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <public type="drawable" name="icon" id="0x7f020000" />
+    <public type="drawable" name="n01" id="0x7f020001" />
+    <public type="drawable" name="n02" id="0x7f020002" />
+    <public type="drawable" name="n03" id="0x7f020003" />
+    <public type="drawable" name="n04" id="0x7f020004" />
+    <public type="drawable" name="n05" id="0x7f020005" />
+    <public type="drawable" name="n06" id="0x7f020006" />
+    <public type="drawable" name="n07" id="0x7f020007" />
+    <public type="drawable" name="n08" id="0x7f020008" />
+    <public type="drawable" name="n09" id="0x7f020009" />
+    <public type="drawable" name="n10" id="0x7f02000a" />
+    <public type="drawable" name="n11" id="0x7f02000b" />
+    <public type="drawable" name="n12" id="0x7f02000c" />
+    <public type="drawable" name="n13" id="0x7f02000d" />
+    <public type="drawable" name="n14" id="0x7f02000e" />
+    <public type="drawable" name="n15" id="0x7f02000f" />
+    <public type="drawable" name="n16" id="0x7f020010" />
+    <public type="drawable" name="n17" id="0x7f020011" />
+    <public type="drawable" name="n18" id="0x7f020012" />
+    <public type="drawable" name="n19" id="0x7f020013" />
+    <public type="drawable" name="n20" id="0x7f020014" />
+    <public type="drawable" name="n21" id="0x7f020015" />
+    <public type="drawable" name="n22" id="0x7f020016" />
+    <public type="drawable" name="n23" id="0x7f020017" />
+    <public type="drawable" name="n24" id="0x7f020018" />
+    <public type="drawable" name="n25" id="0x7f020019" />
+    <public type="drawable" name="n26" id="0x7f02001a" />
+    <public type="drawable" name="n27" id="0x7f02001b" />
+    <public type="drawable" name="n28" id="0x7f02001c" />
+    <public type="drawable" name="n29" id="0x7f02001d" />
+    <public type="drawable" name="n30" id="0x7f02001e" />
+    <public type="drawable" name="n31" id="0x7f02001f" />
+    <public type="drawable" name="n32" id="0x7f020020" />
+    <public type="drawable" name="n33" id="0x7f020021" />
+    <public type="drawable" name="n34" id="0x7f020022" />
+    <public type="drawable" name="n35" id="0x7f020023" />
+    <public type="drawable" name="n36" id="0x7f020024" />
+    <public type="drawable" name="n37" id="0x7f020025" />
+    <public type="drawable" name="n38" id="0x7f020026" />
+    <public type="drawable" name="n39" id="0x7f020027" />
+    <public type="drawable" name="n40" id="0x7f020028" />
+    <public type="drawable" name="n41" id="0x7f020029" />
+    <public type="drawable" name="n42" id="0x7f02002a" />
+    <public type="drawable" name="n43" id="0x7f02002b" />
+    <public type="drawable" name="n44" id="0x7f02002c" />
+    <public type="drawable" name="n45" id="0x7f02002d" />
+    <public type="drawable" name="n46" id="0x7f02002e" />
+    <public type="drawable" name="n47" id="0x7f02002f" />
+    <public type="drawable" name="n48" id="0x7f020030" />
+    <public type="drawable" name="n49" id="0x7f020031" />
+	<public type="drawable" name="n50" id="0x7f020032" />
+	<public type="drawable" name="n51" id="0x7f020033" />
+	<public type="drawable" name="n52" id="0x7f020034" />
+	<public type="drawable" name="n53" id="0x7f020035" />
+	<public type="drawable" name="n54" id="0x7f020036" />
+	<public type="drawable" name="n55" id="0x7f020037" />
+	<public type="drawable" name="n56" id="0x7f020038" />
+	<public type="drawable" name="n57" id="0x7f020039" />
+	<public type="drawable" name="n58" id="0x7f02003a" />
+	<public type="drawable" name="n59" id="0x7f02003b" />
+	<public type="drawable" name="n60" id="0x7f02003c" />
+	<public type="drawable" name="n61" id="0x7f02003d" />
+	<public type="drawable" name="n62" id="0x7f02003e" />
+	<public type="drawable" name="n63" id="0x7f02003f" />
+	<public type="drawable" name="n64" id="0x7f020040" />
+	<public type="drawable" name="n65" id="0x7f020041" />
+	<public type="drawable" name="n66" id="0x7f020042" />
+	<public type="drawable" name="n67" id="0x7f020043" />
+	<public type="drawable" name="n68" id="0x7f020044" />
+	<public type="drawable" name="n69" id="0x7f020045" />
+	<public type="drawable" name="n70" id="0x7f020046" />
+	<public type="drawable" name="n71" id="0x7f020047" />
+	<public type="drawable" name="n72" id="0x7f020048" />
+	<public type="drawable" name="n73" id="0x7f020049" />
+	<public type="drawable" name="n74" id="0x7f02004a" />
+	<public type="drawable" name="n75" id="0x7f02004b" />
+	<public type="drawable" name="n76" id="0x7f02004c" />
+	<public type="drawable" name="n77" id="0x7f02004d" />
+	<public type="drawable" name="n78" id="0x7f02004e" />
+	<public type="drawable" name="n79" id="0x7f02004f" />
+	<public type="drawable" name="n80" id="0x7f020050" />
+	<public type="drawable" name="n81" id="0x7f020051" />
+	<public type="drawable" name="n82" id="0x7f020052" />
+	<public type="drawable" name="n83" id="0x7f020053" />
+	<public type="drawable" name="n84" id="0x7f020054" />
+	<public type="drawable" name="n85" id="0x7f020055" />
+	<public type="drawable" name="n86" id="0x7f020056" />
+	<public type="drawable" name="n87" id="0x7f020057" />
+	<public type="drawable" name="n88" id="0x7f020058" />
+	<public type="drawable" name="n89" id="0x7f020059" />
+	<public type="drawable" name="n90" id="0x7f02005a" />
+	<public type="drawable" name="n91" id="0x7f02005b" />
+	<public type="drawable" name="n92" id="0x7f02005c" />
+	<public type="drawable" name="n93" id="0x7f02005d" />
+	<public type="drawable" name="n94" id="0x7f02005e" />
+	<public type="drawable" name="n95" id="0x7f02005f" />
+	<public type="drawable" name="n96" id="0x7f020060" />
+	<public type="drawable" name="n97" id="0x7f020061" />
+	<public type="drawable" name="n98" id="0x7f020062" />
+	<public type="drawable" name="n99" id="0x7f020063" />
+	<public type="drawable" name="n100" id="0x7f020064" />
+	<public type="drawable" name="n101" id="0x7F020065" />
+<public type="drawable" name="n102" id="0x7F020066" />
+<public type="drawable" name="n103" id="0x7F020067" />
+<public type="drawable" name="n104" id="0x7F020068" />
+<public type="drawable" name="n105" id="0x7F020069" />
+<public type="drawable" name="n106" id="0x7F02006A" />
+<public type="drawable" name="n107" id="0x7F02006B" />
+<public type="drawable" name="n108" id="0x7F02006C" />
+<public type="drawable" name="n109" id="0x7F02006D" />
+<public type="drawable" name="n110" id="0x7F02006E" />
+<public type="drawable" name="n111" id="0x7F02006F" />
+<public type="drawable" name="n112" id="0x7F020070" />
+<public type="drawable" name="n113" id="0x7F020071" />
+<public type="drawable" name="n114" id="0x7F020072" />
+<public type="drawable" name="n115" id="0x7F020073" />
+<public type="drawable" name="n116" id="0x7F020074" />
+<public type="drawable" name="n117" id="0x7F020075" />
+<public type="drawable" name="n118" id="0x7F020076" />
+<public type="drawable" name="n119" id="0x7F020077" />
+<public type="drawable" name="n120" id="0x7F020078" />
+<public type="drawable" name="n121" id="0x7F020079" />
+<public type="drawable" name="n122" id="0x7F02007A" />
+<public type="drawable" name="n123" id="0x7F02007B" />
+<public type="drawable" name="n124" id="0x7F02007C" />
+<public type="drawable" name="n125" id="0x7F02007D" />
+<public type="drawable" name="n126" id="0x7F02007E" />
+<public type="drawable" name="n127" id="0x7F02007F" />
+<public type="drawable" name="n128" id="0x7F020080" />
+<public type="drawable" name="n129" id="0x7F020081" />
+<public type="drawable" name="n130" id="0x7F020082" />
+<public type="drawable" name="n131" id="0x7F020083" />
+<public type="drawable" name="n132" id="0x7F020084" />
+<public type="drawable" name="n133" id="0x7F020085" />
+<public type="drawable" name="n134" id="0x7F020086" />
+<public type="drawable" name="n135" id="0x7F020087" />
+<public type="drawable" name="n136" id="0x7F020088" />
+<public type="drawable" name="n137" id="0x7F020089" />
+<public type="drawable" name="n138" id="0x7F02008A" />
+<public type="drawable" name="n139" id="0x7F02008B" />
+<public type="drawable" name="n140" id="0x7F02008C" />
+<public type="drawable" name="n141" id="0x7F02008D" />
+<public type="drawable" name="n142" id="0x7F02008E" />
+<public type="drawable" name="n143" id="0x7F02008F" />
+<public type="drawable" name="n144" id="0x7F020090" />
+<public type="drawable" name="n145" id="0x7F020091" />
+<public type="drawable" name="n146" id="0x7F020092" />
+<public type="drawable" name="n147" id="0x7F020093" />
+<public type="drawable" name="n148" id="0x7F020094" />
+<public type="drawable" name="n149" id="0x7F020095" />
+<public type="drawable" name="n150" id="0x7F020096" />
+<public type="drawable" name="n151" id="0x7F020097" />
+<public type="drawable" name="n152" id="0x7F020098" />
+<public type="drawable" name="n153" id="0x7F020099" />
+<public type="drawable" name="n154" id="0x7F02009A" />
+<public type="drawable" name="n155" id="0x7F02009B" />
+<public type="drawable" name="n156" id="0x7F02009C" />
+<public type="drawable" name="n157" id="0x7F02009D" />
+<public type="drawable" name="n158" id="0x7F02009E" />
+<public type="drawable" name="n159" id="0x7F02009F" />
+<public type="drawable" name="n160" id="0x7F0200A0" />
+<public type="drawable" name="n161" id="0x7F0200A1" />
+<public type="drawable" name="n162" id="0x7F0200A2" />
+<public type="drawable" name="n163" id="0x7F0200A3" />
+<public type="drawable" name="n164" id="0x7F0200A4" />
+<public type="drawable" name="n165" id="0x7F0200A5" />
+<public type="drawable" name="n166" id="0x7F0200A6" />
+<public type="drawable" name="n167" id="0x7F0200A7" />
+<public type="drawable" name="n168" id="0x7F0200A8" />
+<public type="drawable" name="n169" id="0x7F0200A9" />
+<public type="drawable" name="n170" id="0x7F0200AA" />
+<public type="drawable" name="n171" id="0x7F0200AB" />
+<public type="drawable" name="n172" id="0x7F0200AC" />
+<public type="drawable" name="n173" id="0x7F0200AD" />
+<public type="drawable" name="n174" id="0x7F0200AE" />
+<public type="drawable" name="n175" id="0x7F0200AF" />
+<public type="drawable" name="n176" id="0x7F0200B0" />
+<public type="drawable" name="n177" id="0x7F0200B1" />
+<public type="drawable" name="n178" id="0x7F0200B2" />
+<public type="drawable" name="n179" id="0x7F0200B3" />
+<public type="drawable" name="n180" id="0x7F0200B4" />
+<public type="drawable" name="n181" id="0x7F0200B5" />
+<public type="drawable" name="n182" id="0x7F0200B6" />
+<public type="drawable" name="n183" id="0x7F0200B7" />
+<public type="drawable" name="n184" id="0x7F0200B8" />
+<public type="drawable" name="n185" id="0x7F0200B9" />
+<public type="drawable" name="n186" id="0x7F0200BA" />
+<public type="drawable" name="n187" id="0x7F0200BB" />
+<public type="drawable" name="n188" id="0x7F0200BC" />
+<public type="drawable" name="n189" id="0x7F0200BD" />
+<public type="drawable" name="n190" id="0x7F0200BE" />
+<public type="drawable" name="n191" id="0x7F0200BF" />
+<public type="drawable" name="n192" id="0x7F0200C0" />
+<public type="drawable" name="n193" id="0x7F0200C1" />
+<public type="drawable" name="n194" id="0x7F0200C2" />
+<public type="drawable" name="n195" id="0x7F0200C3" />
+<public type="drawable" name="n196" id="0x7F0200C4" />
+<public type="drawable" name="n197" id="0x7F0200C5" />
+<public type="drawable" name="n198" id="0x7F0200C6" />
+<public type="drawable" name="n199" id="0x7F0200C7" />
+<public type="drawable" name="n200" id="0x7F0200C8" />
+<public type="drawable" name="n201" id="0x7F0200C9" />
+<public type="drawable" name="n202" id="0x7F0200CA" />
+<public type="drawable" name="n203" id="0x7F0200CB" />
+<public type="drawable" name="n204" id="0x7F0200CC" />
+<public type="drawable" name="n205" id="0x7F0200CD" />
+<public type="drawable" name="n206" id="0x7F0200CE" />
+<public type="drawable" name="n207" id="0x7F0200CF" />
+<public type="drawable" name="n208" id="0x7F0200D0" />
+<public type="drawable" name="n209" id="0x7F0200D1" />
+<public type="drawable" name="n210" id="0x7F0200D2" />
+<public type="drawable" name="n211" id="0x7F0200D3" />
+<public type="drawable" name="n212" id="0x7F0200D4" />
+<public type="drawable" name="n213" id="0x7F0200D5" />
+<public type="drawable" name="n214" id="0x7F0200D6" />
+<public type="drawable" name="n215" id="0x7F0200D7" />
+<public type="drawable" name="n216" id="0x7F0200D8" />
+<public type="drawable" name="n217" id="0x7F0200D9" />
+<public type="drawable" name="n218" id="0x7F0200DA" />
+<public type="drawable" name="n219" id="0x7F0200DB" />
+<public type="drawable" name="n220" id="0x7F0200DC" />
+<public type="drawable" name="n221" id="0x7F0200DD" />
+<public type="drawable" name="n222" id="0x7F0200DE" />
+<public type="drawable" name="n223" id="0x7F0200DF" />
+<public type="drawable" name="n224" id="0x7F0200E0" />
+<public type="drawable" name="n225" id="0x7F0200E1" />
+<public type="drawable" name="n226" id="0x7F0200E2" />
+<public type="drawable" name="n227" id="0x7F0200E3" />
+<public type="drawable" name="n228" id="0x7F0200E4" />
+<public type="drawable" name="n229" id="0x7F0200E5" />
+<public type="drawable" name="n230" id="0x7F0200E6" />
+<public type="drawable" name="n231" id="0x7F0200E7" />
+<public type="drawable" name="n232" id="0x7F0200E8" />
+<public type="drawable" name="n233" id="0x7F0200E9" />
+<public type="drawable" name="n234" id="0x7F0200EA" />
+<public type="drawable" name="n235" id="0x7F0200EB" />
+<public type="drawable" name="n236" id="0x7F0200EC" />
+<public type="drawable" name="n237" id="0x7F0200ED" />
+<public type="drawable" name="n238" id="0x7F0200EE" />
+<public type="drawable" name="n239" id="0x7F0200EF" />
+<public type="drawable" name="n240" id="0x7F0200F0" />
+<public type="drawable" name="n241" id="0x7F0200F1" />
+<public type="drawable" name="n242" id="0x7F0200F2" />
+<public type="drawable" name="n243" id="0x7F0200F3" />
+<public type="drawable" name="n244" id="0x7F0200F4" />
+<public type="drawable" name="n245" id="0x7F0200F5" />
+<public type="drawable" name="n246" id="0x7F0200F6" />
+<public type="drawable" name="n247" id="0x7F0200F7" />
+<public type="drawable" name="n248" id="0x7F0200F8" />
+<public type="drawable" name="n249" id="0x7F0200F9" />
+<public type="drawable" name="n250" id="0x7F0200FA" />
+<public type="drawable" name="n251" id="0x7F0200FB" />
+<public type="drawable" name="n252" id="0x7F0200FC" />
+<public type="drawable" name="n253" id="0x7F0200FD" />
+<public type="drawable" name="n254" id="0x7F0200FE" />
+<public type="drawable" name="n255" id="0x7F0200FF" />
+<public type="drawable" name="n256" id="0x7F020100" />
+<public type="drawable" name="n257" id="0x7F020101" />
+<public type="drawable" name="n258" id="0x7F020102" />
+<public type="drawable" name="n259" id="0x7F020103" />
+<public type="drawable" name="n260" id="0x7F020104" />
+<public type="drawable" name="n261" id="0x7F020105" />
+<public type="drawable" name="n262" id="0x7F020106" />
+<public type="drawable" name="n263" id="0x7F020107" />
+<public type="drawable" name="n264" id="0x7F020108" />
+<public type="drawable" name="n265" id="0x7F020109" />
+<public type="drawable" name="n266" id="0x7F02010A" />
+<public type="drawable" name="n267" id="0x7F02010B" />
+<public type="drawable" name="n268" id="0x7F02010C" />
+<public type="drawable" name="n269" id="0x7F02010D" />
+<public type="drawable" name="n270" id="0x7F02010E" />
+<public type="drawable" name="n271" id="0x7F02010F" />
+<public type="drawable" name="n272" id="0x7F020110" />
+<public type="drawable" name="n273" id="0x7F020111" />
+<public type="drawable" name="n274" id="0x7F020112" />
+<public type="drawable" name="n275" id="0x7F020113" />
+<public type="drawable" name="n276" id="0x7F020114" />
+<public type="drawable" name="n277" id="0x7F020115" />
+<public type="drawable" name="n278" id="0x7F020116" />
+<public type="drawable" name="n279" id="0x7F020117" />
+<public type="drawable" name="n280" id="0x7F020118" />
+<public type="drawable" name="n281" id="0x7F020119" />
+<public type="drawable" name="n282" id="0x7F02011A" />
+<public type="drawable" name="n283" id="0x7F02011B" />
+<public type="drawable" name="n284" id="0x7F02011C" />
+<public type="drawable" name="n285" id="0x7F02011D" />
+<public type="drawable" name="n286" id="0x7F02011E" />
+<public type="drawable" name="n287" id="0x7F02011F" />
+<public type="drawable" name="n288" id="0x7F020120" />
+<public type="drawable" name="n289" id="0x7F020121" />
+<public type="drawable" name="n290" id="0x7F020122" />
+<public type="drawable" name="n291" id="0x7F020123" />
+<public type="drawable" name="n292" id="0x7F020124" />
+<public type="drawable" name="n293" id="0x7F020125" />
+<public type="drawable" name="n294" id="0x7F020126" />
+<public type="drawable" name="n295" id="0x7F020127" />
+<public type="drawable" name="n296" id="0x7F020128" />
+<public type="drawable" name="n297" id="0x7F020129" />
+<public type="drawable" name="n298" id="0x7F02012A" />
+<public type="drawable" name="n299" id="0x7F02012B" />
+<public type="drawable" name="n300" id="0x7F02012C" />
+    <public type="xml" name="settings" id="0x7f030000" />
+    <public type="xml" name="wallpaper" id="0x7f030001" />
+    <public type="array" name="size_names" id="0x7f040000" />
+    <public type="array" name="size_values" id="0x7f040001" />
+    <public type="string" name="app_name" id="0x7f050000" />
+    <public type="string" name="settings_title" id="0x7f050001" />
+    <public type="string" name="description" id="0x7f050002" />
+    <public type="string" name="preference_fps_title" id="0x7f050003" />
+    <public type="string" name="preference_fps_summary" id="0x7f050004" />
+    <public type="string" name="preference_size_title" id="0x7f050005" />
+    <public type="string" name="preference_size_summary" id="0x7f050006" />
+</resources>

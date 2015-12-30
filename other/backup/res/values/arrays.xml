@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="size_names">
+        <item>Big (Default)</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="size_values">
+        <item>480, 854</item>
+        <item>480, 600</item>
+        <item>320, 480</item>
+    </string-array>
+</resources>

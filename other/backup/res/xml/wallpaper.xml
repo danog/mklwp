@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wallpaper android:description="@string/description" android:settingsActivity="com.custom.lwp.suvbsib.LiveWallpaperSettings" android:thumbnail="@drawable/icon"
+  xmlns:android="http://schemas.android.com/apk/res/android" />
