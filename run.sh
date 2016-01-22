@@ -4,28 +4,72 @@ aapt &>/dev/null || export PATH="$PATH:$PWD/other"
 rm -rf out &>/dev/null
 
 cp -a other/backup out
-echo "Custom LWP 2.6
+
+[ "$1" = "bashbot" ] && {
+	error() { cd /tmp; rm -rf /tmp/$2; echo "I'm sorry, it seems an error occurred ($*). Please type /start to restart the process."; }
+	mktmpdir() { rm -rf /tmp/$2 &>/dev/null; cp -a $PWD /tmp/$2; cd /tmp/$2; }
+	echo "Custom LWP 2.6
+Thanks : andrew121 for the app this script modifies
+Thanks : olivvv59 for the added # of images
+Thanks : danogentili for linux version and telegram bot (http://daniil.it)
+Send me the app icon (preferrably square)."
+	mktmpdir || error "couldn't create tmp dir"
+	read icon
+	convert $icon placeimages/icon.png || error "couldn't download icon" 
+	weird=y
+	while [ "$weird" = "y" ] && {
+		echo "Do you want to create this live wallpaper using mykeyboardstartshere \"1. A video\" \"2. Multiple images\""
+		read answer
+		case $answer in
+			"1. A video")
+				echo "Send me the video"
+				read video
+				basename=$(basename $video)
+				wget $video -O $basename
+				frames=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 $basename)
+				frames=$(awk "BEGIN{print $frames / 300}")
+				ffmpeg -i $basename -vsync 0 -vf "select='not(mod(n,$frames))'" placeimages/images/n%03d.png
+				rm $basename
+				weird=n
+				;;
+			"2. Multiple images")
+				echo "Send me the images, type done when you're done."
+				n=1
+				until [ "$n" = "301" ];do 
+					read img
+					[ "${img,,}" = "done" ] && break
+					convert $img placeimages/images/n$n".png"
+					n=$(($n + 1))
+				done
+				weird=n
+				;;
+		esac
+	}
+} || {
+	echo "Custom LWP 2.6
 Thanks : andrew121 for the app this script modifies
 Thanks : olivvv59 for the added # of images
 Thanks : danogentili for linux version (http://daniil.it)
 ---------------------------------------------------
-Place images in placeimages/images folder and place the app icon in placeimages/icon.png
+Place images in the placeimages/images folder and place the app icon in placeimages/icon.png
 Make sure the images are the same resolution as your device for optimal results
 You can use up to 300 images (n01.png...n300.png)
 The images must be in png format.
 Press enter when you're done."
-read
-echo
-read -p "Enter the name for this live wallpaper. This is shown in the lwp choice menu. " name
+	read
+}
+
+echo "Enter the name for this live wallpaper. This is shown in the lwp choice menu. " 
+read name
 name=$(printf "%q" "$name")
-echo 
 
-read -p "Enter the description for this live wallpaper. This is shown in the lwp choice menu. " desc
+echo "Enter the description for this live wallpaper. This is shown in the lwp choice menu. "
+read desc
 desc=$(printf "%q" "$desc")
-echo
 
-read -p "Enter the package name for this live wallpaper. This should be one word.
-No spaces or fancy characters please. " pkgname
+echo "Enter the package name for this live wallpaper. This should be one word.
+No spaces or fancy characters please. "
+read pkgname
 pkgname=$(printf "%q" "$pkgname")
 
 n=0
@@ -58,11 +102,12 @@ mv other/$pkgname-signed.apk $pkgname-signed.apk
 echo "
 Done.
 "
-
-read -p "Would you like to install this apk? 
+[ "$1" = "bashbot" ] && {
+	read -p "Would you like to install this apk? 
 Ur device must be connected to ur pc and adb must be in ur PATH (y/n). " -n 1 -r
-[[ $REPLY =~ ^[Yy]$ ]] && adb install -r $pkgname"-signed.apk"
-echo
+	[[ $REPLY =~ ^[Yy]$ ]] && adb install -r $pkgname"-signed.apk"
+	echo
+} || { echo "myfilelocationstartshere $PWD/$pkgname"-signed.apk; };
 sleep 1
 exit
 
