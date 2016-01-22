@@ -72,7 +72,7 @@ send_keyboard() {
 	local keyboard=init
 	OLDIFS=$IFS
 	IFS=$(echo -en "\"")
-	for f in $*;do [ ! -z "$f" ] && local keyboard="$keyboard, [\"$f\"]";done
+	for f in $*;do [ "$f" != " " ] && local keyboard="$keyboard, [\"$f\"]";done
 	IFS=$OLDIFS
 	local keyboard=${keyboard/init, /}
 	res=$(curl -s "$MSG_URL" --header "content-type: multipart/form-data" -F "chat_id=$chat" -F "text=$text" -F "reply_markup={\"keyboard\": [$keyboard],\"one_time_keyboard\": true}")
@@ -125,6 +125,7 @@ send_file() {
 	esac
 	send_action $chat_id $STATUS
 	res=$(curl -s "$CUR_URL" -F "chat_id=$chat_id" -F "$WHAT=@$file" -F "caption=$3")
+	# rm -rf $(dirname $file)
 }
 
 # typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_audio or upload_audio for audio files, upload_document for general files, find_location for location
@@ -210,25 +211,11 @@ process_client() {
 		}
 		[ ! -z "${LOCATION[*]}" ] && send_location "${USER[ID]}" "${LOCATION[LATITUDE]}" "${LOCATION[LONGITUDE]}"
 		case $MESSAGE in
-			'/question')
-				startproc&
-				;;
 			'/info')
 				send_message "${USER[ID]}" "This is bashbot, the Telegram bot written entirely in bash."
 				;;
 			'/start')
-				send_message "${USER[ID]}" "This is bashbot, the Telegram bot written entirely in bash.
-Features background tasks and interactive chats.
-Can serve as an interface for cli programs.
-Currently can send, recieve and forward messages, custom keyboards, photos, audio, voice, documents, locations and video files.
-Available commands:
-/start: Start bot and get this message.
-/info: Get shorter info message about this bot.
-/question: Start interactive chat.
-/cancel: Cancel any currently running interactive chats.
-Written by @topkecleon, Juan Potato (@awkward_potato), Lorenzo Santina (BigNerd95) and Daniil Gentili (danog)
-Contribute to the project: https://github.com/topkecleon/telegram-bot-bash
-"
+				startproc&
 				;;
 			'')
 				;;
@@ -237,6 +224,10 @@ Contribute to the project: https://github.com/topkecleon/telegram-bot-bash
 		esac
 	else
 		case $MESSAGE in
+
+			'/start')
+				startproc&
+				;;
 			'/cancel')
 				kill $copid
 				rm -r $copname
