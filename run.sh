@@ -1,7 +1,8 @@
 #!/bin/bash
 java -version &>/dev/null || { echo "Java is not installed. Please install java to run this tool"; exit 1; }
-export PATH="$PATH:$PWD/other"
+aapt &>/dev/null || export PATH="$PATH:$PWD/other"
 rm -rf out &>/dev/null
+
 cp -a other/backup out
 echo "Custom LWP 2.6
 Thanks : andrew121 for the app this script modifies
@@ -38,17 +39,8 @@ sed -i 's/appname/'$name'/g' out/AndroidManifest.xml
 sed -i 's/dscrp/'$desc'/g' out/res/values/strings.xml
 sed -i 's/const\/16 v1, 0x31/const\/16 v1, 0x'$n'/g' out/smali/com/custom/lwp/$pkgname/LiveWallpaperPainting\$OutRunEngine.smali
 
-
-counter=1
-placeholder=0
-
-until [ $counter = 301 ]; do 
-	[ ! -f "out/res/drawable-hdpi-v4/n$placeholder"$counter".png" ] && cp "other/ph.png" "out/res/drawable-hdpi-v4/n$placeholder"$counter".png"
-	counter=$(($counter + 1))
-	[ $counter = 10 ] && placeholder=
-done
-
 cp placeimages/images/* "out/res/drawable-hdpi-v4/"
+for f in out/res/drawable-*; do cp placeimages/icon.png $f;done
 
 echo "
 Building Apk"
@@ -71,5 +63,6 @@ read -p "Would you like to install this apk?
 Ur device must be connected to ur pc and adb must be in ur PATH (y/n). " -n 1 -r
 [[ $REPLY =~ ^[Yy]$ ]] && adb install -r $pkgname"-signed.apk"
 echo
+sleep 1
 exit
 
