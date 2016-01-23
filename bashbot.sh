@@ -12,7 +12,6 @@
 # This file is public domain in the USA and all free countries.
 # If you're in Europe, and public domain does not exist, then haha.
 
-TOKEN='tokenhere'
 URL='https://api.telegram.org/bot'$TOKEN
 
 FORWARD_URL=$URL'/forwardMessage'
@@ -51,7 +50,7 @@ send_message() {
 		local sent=y
 	fi
 	if [ "$file" != "" ]; then
-		send_file "$chat" "$file"
+		send_file "$chat" "$file" "$text"
 		local sent=y
 	fi
 	if [ "$lat" != "" -a "$long" != "" ]; then
@@ -125,7 +124,7 @@ send_file() {
 	esac
 	send_action $chat_id $STATUS
 	res=$(curl -s "$CUR_URL" -F "chat_id=$chat_id" -F "$WHAT=@$file" -F "caption=$3")
-	# rm -rf $(dirname $file)
+	rm -rf $(dirname $file)
 }
 
 # typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_audio or upload_audio for audio files, upload_document for general files, find_location for location
@@ -149,6 +148,7 @@ forward() {
 startproc() {
 	mkdir -p "$copname"
 	mkfifo $copname/out
+	tmux kill-session -t $copname
 	tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname/out"
 	local pid=$(ps aux | sed '/tmux/!d;/'$copname'/!d;/sed/d;s/'$USER'\s*//g;s/\s.*//g')
 	echo $pid>$copname/pid

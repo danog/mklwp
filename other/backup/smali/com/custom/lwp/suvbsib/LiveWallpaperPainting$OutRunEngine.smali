@@ -62,7 +62,7 @@
     iput v6, p0, Lcom/custom/lwp/suvbsib/LiveWallpaperPainting$OutRunEngine;->fps:I
 
     .line 281
-    const-string v0, "320, 480"
+    const-string v0, "480, 854"
 
     iput-object v0, p0, Lcom/custom/lwp/suvbsib/LiveWallpaperPainting$OutRunEngine;->size:Ljava/lang/String;
 
