@@ -149,8 +149,8 @@ startproc() {
 	rm -r $copname
 	mkfifo $copname
 	tmux kill-session -t $copname
-	tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname/out"
-	while tmux ls | grep -v grep | grep -q $copname;do
+	tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname"
+	while tmux ls | grep -q $copname;do
 		read -t 10 line
 		[ "$line" != "" ] && send_message "${USER[ID]}" "$line"
 		line=
@@ -211,7 +211,7 @@ process_client() {
 				send_message "${USER[ID]}" "This is bashbot, the Telegram bot written entirely in bash."
 				;;
 			'/start')
-				startproc&
+				startproc
 				;;
 			'')
 				;;
