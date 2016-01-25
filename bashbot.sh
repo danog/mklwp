@@ -146,23 +146,21 @@ forward() {
 
 
 startproc() {
-	mkdir -p "$copname"
-	mkfifo $copname/out
+	rm -r $copname
+	mkfifo $copname
 	tmux kill-session -t $copname
 	tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname/out"
-	local pid=$(ps aux | sed '/tmux/!d;/'$copname'/!d;/sed/d;s/'$USER'\s*//g;s/\s.*//g')
-	echo $pid>$copname/pid
-	while ps aux | grep -v grep | grep -q $pid;do
+	while tmux ls | grep -v grep | grep -q $copname;do
 		read -t 10 line
 		[ "$line" != "" ] && send_message "${USER[ID]}" "$line"
 		line=
-	done <$copname/out
+	done <$copname
+	rm -r $copname
 }
 
 inproc() {
 	tmux send-keys -t $copname "$MESSAGE ${URLS[*]}
 "
-	ps aux | grep -v grep | grep -q "$copid" || { rm -r $copname; };
 }
 
 process_client() {
@@ -200,10 +198,8 @@ process_client() {
 
 	# Tmux 
 	copname="CO${USER[ID]}"
-	copidname="$copname/pid"
-	copid="$(cat $copidname 2>/dev/null)"
 
-	if [ "$copid" = "" ]; then
+	if ! tmux ls | grep -q $copname; then
 		[ ! -z "${URLS[*]}" ] && {
 			curl -s ${URLS[*]} -o $NAME
 			send_file "${USER[ID]}" "$NAME" "$CAPTION"
@@ -229,7 +225,7 @@ process_client() {
 				startproc&
 				;;
 			'/cancel')
-				kill $copid
+				tmux kill-session -t $copname
 				rm -r $copname
 				send_message "${USER[ID]}" "Command canceled."
 				;;

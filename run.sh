@@ -6,7 +6,7 @@ rm -rf out &>/dev/null
 cp -a other/backup out
 first=$2
 [ "$1" = "bashbot" ] && {
-	error() { cd /tmp; rm -rf /tmp/$first; echo "I'm sorry, it seems an error occurred ($*). Please type /start to restart the process."; sleep 2;exit; }
+	error() { cd /tmp; rm -rf /tmp/$first; echo "I'm sorry, it seems an error occurred ($*). Please type /start to restart the process. If you want you can report this error to the creator of this bot by sending a screenshot of this chat @danogentili"; sleep 2;exit; }
 	mktmpdir() { rm -rf /tmp/$1 &>/dev/null; cp -a $PWD /tmp/$1; cd /tmp/$1; }
 	echo "Custom LWP 2.6
 Thanks : andrew121 for the app this script modifies
@@ -17,7 +17,7 @@ Send me the app icon (preferrably square)."
 	read icon
 	convert $icon placeimages/icon.png || error "couldn't download icon" 
 
-	echo "Send me a screenshot of this chat or your device's screen size."
+	echo "Send me your device's screen size (can be obtained using https://play.google.com/store/apps/details?id=lt.andro.screensize)."
 	read size
 	echo "$size" | grep -q http && {
 		screensize=$(identify $size | awk '{print $3}')
@@ -135,11 +135,11 @@ Ur device must be connected to ur pc and adb must be in ur PATH (y/n). " -n 1 -r
 	[[ $REPLY =~ ^[Yy]$ ]] && adb install -r $pkgname"-signed.apk"
 	echo
 } || { 
-	echo "Sending apk...
+	echo "This bot is based on https://github.com/topkecleon/telegram-bot-bash
+You can also contribute to the development by sending a pull request @ https://github.com/danog/mklwp
 Thanks for having used mklwp! To restart the process type /start.
 Remember to set the correct resolution of your lwp by going in the lwp settings and setting the default resultion.
-This bot is based on https://github.com/topkecleon/telegram-bot-bash
-You can also contribute to the development by sending a pull request @ https://github.com/danog/mklwp
+Sending apk...
 There U go myfilelocationstartshere $PWD/$pkgname"-signed.apk
 
 	sleep 10
