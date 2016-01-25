@@ -15,6 +15,8 @@ if you're on linux or Mac OS X, and the Run.bat file if you're on windoez.
 run.bat
 ```
 
+Or use the [telegram bot](https://telegram.me/mklwp_bot)
+
 
 You will need java installed on your system.
 
