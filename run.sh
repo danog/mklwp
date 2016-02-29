@@ -15,34 +15,34 @@ Thanks : danogentili for linux version and telegram bot (http://daniil.it)
 Send me the app icon (preferrably square)."
 	mktmpdir $2 || error "couldn't create tmp dir"
 	read icon
-	convert $icon placeimages/icon.png || error "couldn't download icon" 
+	convert "$icon" placeimages/icon.png || error "couldn't download icon" 
 
 	echo "Send me your device's screen size (can be obtained using https://play.google.com/store/apps/details?id=lt.andro.screensize)."
 	read size
 	echo "$size" | grep -q http && {
-		screensize=$(identify $size | awk '{print $3}')
+		screensize=$(identify "$size" | awk '{print $3}')
 	} || {
-		screensize=$size
+		screensize="$size"
 	}
 	weird=y
 	while [ "$weird" = "y" ];do 
 		echo "Do you want to create this live wallpaper using mykeyboardstartshere \"1. A video\" \"2. Multiple images\""
 		read answer
-		case $answer in
+		case "$answer" in
 			"1. A video")
-				echo "Send me the video itself or the video's url."
+				echo "Send me the video itself or the video's url (I can download youtube videos)."
 				read video
 				video=$(echo "$video" | sed 's/^\s*//g;s/\s*$//g')
-				basename=$(basename $video)
+				basename="V.mp4"
 				echo "Downloading the video..."
-				wget "$video" -qO $basename || error "couldn't download video"
+				youtube-dl "$video" -o $basename || error "couldn't download video"
 
 				echo "Getting frame number..."
-				frames=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 $basename -loglevel panic)
-				frames=$(awk "BEGIN{print $frames / 300}")
+				frames=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=duration -of default=nokey=1:noprint_wrappers=1 $basename -loglevel panic)
+				frames=$(awk "BEGIN{print 1 / ($frames / 300)}")
 
 				echo "Converting video..."
-				ffmpeg -i $basename  -f image2 -r $frames placeimages/images/n%03d.png -loglevel panic || error "couldn't convert video"
+				ffmpeg -i $basename -f image2 -r $frames placeimages/images/n%03d.png -loglevel panic || error "couldn't convert video"
 				rm $basename
 				echo "Done!"
 				weird=n
@@ -54,7 +54,7 @@ Send me the app icon (preferrably square)."
 				until [ "$n" = "301" ];do 
 					read img
 					[ "${img,,}" = "done" ] && break
-					convert $img placeimages/images/n$n".png" && echo ok || error "couldn't download $img"
+					convert "$img" placeimages/images/n$n".png" && echo ok || error "couldn't download $img"
 					n=$(($n + 1))
 				done
 				weird=n
@@ -87,14 +87,16 @@ No spaces or fancy characters please. "
 read pkgname
 pkgname=$(printf "%q" "$pkgname")
 
+echo "Converting images (might take up to five minutes)..."
 n=0
 p=0
-for f in placeimages/images/*;do n=$(($n+1)); [ "$n" = 10 ] && p=; convert $f -resize $screensize "out/res/drawable-hdpi-v4/n"$p$n".png";done
+for f in placeimages/images/*;do n=$(($n+1)); [ "$n" = 10 ] && p=; convert $f -resize "$screensize" "out/res/drawable-hdpi-v4/n"$p$n".png";done
 n=$(printf "%x" $n)
 
 counter=1
 placeholder=0
 
+echo "Copying images..."
 screensize="s/480, 854/$(echo "$screensize" | sed 's/x/, /g')/g"
 until [ $counter = 301 ]; do 
 	[ ! -f "out/res/drawable-hdpi-v4/n$placeholder"$counter".png" ] && cp "other/ph.png" "out/res/drawable-hdpi-v4/n$placeholder"$counter".png"
@@ -102,6 +104,7 @@ until [ $counter = 301 ]; do
 	[ $counter = 10 ] && placeholder=
 done
 
+echo "Editing configuration files..."
 sed -i 's/suvbsib/'$pkgname'/g' out/smali/com/custom/lwp/suvbsib/*.smali out/res/xml/*.xml out/AndroidManifest.xml out/res/values/*.xml
 sed -i "$screensize" out/smali/com/custom/lwp/suvbsib/*.smali out/res/xml/*.xml out/AndroidManifest.xml out/res/values/*.xml
 

@@ -124,7 +124,7 @@ send_file() {
 	esac
 	send_action $chat_id $STATUS
 	res=$(curl -s "$CUR_URL" -F "chat_id=$chat_id" -F "$WHAT=@$file" -F "caption=$3")
-	rm -rf $(dirname $file)
+	rm -rf "/tmp/${USER[ID]}"
 }
 
 # typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_audio or upload_audio for audio files, upload_document for general files, find_location for location
@@ -226,7 +226,7 @@ process_client() {
 				;;
 			'/cancel')
 				tmux kill-session -t $copname
-				rm -r $copname
+				rm -r $copname /tmp/"${USER[ID]}"
 				send_message "${USER[ID]}" "Command canceled."
 				;;
 			*) inproc;;
