@@ -7,11 +7,12 @@
 # which is MIT/Apache-licensed
 # And on tmux (https://github.com/tmux/tmux),
 # which is BSD-licensed
+cd $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 
 # This file is public domain in the USA and all free countries.
 # If you're in Europe, and public domain does not exist, then haha.
-
+source token
 URL='https://api.telegram.org/bot'$TOKEN
 
 FORWARD_URL=$URL'/forwardMessage'
@@ -26,6 +27,8 @@ VOICE_URL=$URL'/sendVoice'
 LOCATION_URL=$URL'/sendLocation'
 ACTION_URL=$URL'/sendChatAction'
 FORWARD_URL=$URL'/forwardMessage'
+ME_URL=$URL'/getMe'
+ME=$(curl -s $ME_URL | ./JSON.sh -s | egrep '\["result","username"\]' | cut -f 2 | cut -d '"' -f 2)
 
 FILE_URL='https://api.telegram.org/file/bot'$TOKEN'/'
 UPD_URL=$URL'/getUpdates?offset='
@@ -124,7 +127,7 @@ send_file() {
 	esac
 	send_action $chat_id $STATUS
 	res=$(curl -s "$CUR_URL" -F "chat_id=$chat_id" -F "$WHAT=@$file" -F "caption=$3")
-	rm -rf "/tmp/${USER[ID]}"
+	rm -rf "/mnt/vdb/${USER[ID]}"
 }
 
 # typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_audio or upload_audio for audio files, upload_document for general files, find_location for location
@@ -149,7 +152,7 @@ startproc() {
 	rm -r $copname
 	mkfifo $copname
 	tmux kill-session -t $copname
-	tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname"
+	TMUX= tmux new-session -d -s $copname "./run.sh bashbot ${USER[ID]} &>$copname"
 	while tmux ls | grep -q $copname;do
 		read -t 10 line
 		[ "$line" != "" ] && send_message "${USER[ID]}" "$line"
@@ -210,13 +213,11 @@ process_client() {
 			'/info')
 				send_message "${USER[ID]}" "This is bashbot, the Telegram bot written entirely in bash."
 				;;
-			'/start')
-				startproc
+			'/start'*)
+				startproc&
 				;;
 			'')
 				;;
-			*)
-				send_message "${USER[ID]}" "$MESSAGE"
 		esac
 	else
 		case $MESSAGE in
@@ -226,15 +227,19 @@ process_client() {
 				;;
 			'/cancel')
 				tmux kill-session -t $copname
-				rm -r $copname /tmp/"${USER[ID]}"
+				rm -r $copname /mnt/vdb/"${USER[ID]}"
 				send_message "${USER[ID]}" "Command canceled."
 				;;
 			*) inproc;;
 		esac
 	fi
+	tmpcount="COUNT${USER[ID]}"
+	cat count | grep -q "$tmpcount" || echo "$tmpcount">>count
+	# To get user count execute bash bashbot.sh count
+
 }
 
-while true; do {
+while [ "$1" == "startbot" ]; do {
 
 	res=$(curl -s $UPD_URL$OFFSET | ./JSON.sh -s)
 
@@ -254,3 +259,33 @@ while true; do {
 
 }; done
 
+case "$1" in
+	"outproc")
+		until [ "$line" = "imprettydarnsuredatdisisdaendofdacmd" ];do
+			line=
+			read -t 10 line
+			[ "$line" != "" -a "$line" != "imprettydarnsuredatdisisdaendofdacmd" ] && send_message "$2" "$line"
+		done </tmp/$3
+		rm -r /tmp/$3
+		;;
+	"count")
+		echo "A total of $(wc -l count | sed 's/count//g')users used me."
+		;;
+	"broadcast")
+		echo "Sending the broadcast $* to $(wc -l count | sed 's/count//g')users."
+		[ $(wc -l count | sed 's/ count//g') -gt 100 ] && sleep="sleep 1"
+		shift
+		for f in $(cat count);do send_message ${f//COUNT} "$*"; $sleep;done
+		;;
+	"start")
+		tmux kill-session -t $ME&>/dev/null
+		tmux new-session -d -s $ME "bash -c \"while :;do bash ./bashbot.sh startbot $ME;done\"" && echo "Bot started successfully. Tmux session name is $ME" || echo "An error occurred while starting the bot."
+		;;
+	"kill")
+		tmux kill-session -t $ME &>/dev/null
+		echo "Bot was killed successfully. "
+		;;
+	"help")
+		cat README.md
+		;;
+esac

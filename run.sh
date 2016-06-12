@@ -5,17 +5,19 @@ rm -rf out &>/dev/null
 
 cp -a other/backup out
 first=$2
+
+
 [ "$1" = "bashbot" ] && {
-	error() { cd /tmp; rm -rf /tmp/$first; echo "I'm sorry, it seems an error occurred ($*). Please type /start to restart the process. If you want you can report this error to the creator of this bot by sending a screenshot of this chat @danogentili"; sleep 2;exit; }
-	mktmpdir() { rm -rf /tmp/$1 &>/dev/null; cp -a $PWD /tmp/$1; cd /tmp/$1; }
+	error() { cd /mnt/vdb; rm -rf /mnt/vdb/$first; echo "I'm sorry, it seems an error occurred ($*). Please type /start to restart the process. If you want you can report this error to the creator of this bot by sending a screenshot of this chat @danogentili"; sleep 2;exit; }
+	mktmpdir() { rm -rf /mnt/vdb/$1 &>/dev/null; cp -a $PWD /mnt/vdb/$1; cd /mnt/vdb/$1; }
 	echo "Custom LWP 2.6
 Thanks : andrew121 for the app this script modifies
-Thanks : olivvv59 for the added # of images
-Thanks : danogentili for linux version and telegram bot (http://daniil.it)
+Thanks : olivvv59 for adding the # of images
+Thanks : @danogentili for linux version and telegram bot (http://daniil.it)
 Send me the app icon (preferrably square)."
 	mktmpdir $2 || error "couldn't create tmp dir"
 	read icon
-	convert "$icon" placeimages/icon.png || error "couldn't download icon" 
+	wget "$icon" -qO placeimages/$(basename "$icon") && convert placeimages/$(basename "$icon") placeimages/icon.png && rm placeimages/$(basename "$icon") || error "couldn't download icon" 
 
 	echo "Send me your device's screen size (can be obtained using https://play.google.com/store/apps/details?id=lt.andro.screensize)."
 	read size
@@ -54,7 +56,8 @@ Send me the app icon (preferrably square)."
 				until [ "$n" = "301" ];do 
 					read img
 					[ "${img,,}" = "done" ] && break
-					convert "$img" placeimages/images/n$n".png" && echo ok || error "couldn't download $img"
+					wget "$img" -qO placeimages/images/"$(basename "$img")" && convert placeimages/images/"$(basename "$img")" placeimages/images/n$n".png" && rm placeimages/images/"$(basename "$img")" && echo ok || error "couldn't download the image"
+
 					n=$(($n + 1))
 				done
 				weird=n
@@ -90,7 +93,7 @@ pkgname=$(printf "%q" "$pkgname")
 echo "Converting images (might take up to five minutes)..."
 n=0
 p=0
-for f in placeimages/images/*;do n=$(($n+1)); [ "$n" = 10 ] && p=; convert $f -resize "$screensize" "out/res/drawable-hdpi-v4/n"$p$n".png";done
+for f in placeimages/images/*;do n=$(($n+1)); [ "$n" = 10 ] && p=; convert "$f" -resize "$screensize" "out/res/drawable-hdpi-v4/n"$p$n".png";done
 n=$(printf "%x" $n)
 
 counter=1
@@ -141,6 +144,7 @@ Ur device must be connected to ur pc and adb must be in ur PATH (y/n). " -n 1 -r
 	echo "This bot is based on https://github.com/topkecleon/telegram-bot-bash
 You can also contribute to the development by sending a pull request @ https://github.com/danog/mklwp
 Thanks for having used mklwp! To restart the process type /start.
+Do check out my other projects @ https://daniil.it and do Check out my other bots: @video_dl_bot, @mklwp_bot, @caption_ai_bot, @cowsaysbot, @cowthinksbot, @figletsbot, @lolcatzbot, @filtersbot, @id3bot, @pwrtelegrambot!
 Remember to set the correct resolution of your lwp by going in the lwp settings and setting the default resultion.
 Sending apk...
 There U go myfilelocationstartshere $PWD/$pkgname"-signed.apk
