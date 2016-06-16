@@ -8,10 +8,8 @@
 # And on tmux (https://github.com/tmux/tmux),
 # which is BSD-licensed
 cd $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# Licensed under gplv3
 
-
-# This file is public domain in the USA and all free countries.
-# If you're in Europe, and public domain does not exist, then haha.
 source token
 URL='https://api.telegram.org/bot'$TOKEN
 
